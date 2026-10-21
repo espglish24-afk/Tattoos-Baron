@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TATTOOS BARON - Tu idea, nuestro arte</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Montserrat:wght@300;400;500;600;700&family=Permanent+Marker&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        gold: {
+                            light: '#f9e076',
+                            DEFAULT: '#d4af37',
+                            dark: '#aa7c11',
+                            metallic: 'linear-gradient(135deg, #bf953f 0%, #fcf6ba 25%, #b38728 50%, #fbf5b7 75%, #aa771c 100%)'
+                        },
+                        dark: {
+                            900: '#0a0a0a',
+                            800: '#121212',
+                            700: '#1c1c1c',
+                            600: '#262626'
+                        }
+                    },
+                    fontFamily: {
+                        cinzel: ['Cinzel', 'serif'],
+                        montserrat: ['Montserrat', 'sans-serif'],
+                        marker: ['Permanent Marker', 'cursive']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #070707;
+            color: #e5e5e5;
+            background-image: 
+                radial-gradient(circle at 20% 20%, rgba(212, 175, 55, 0.05) 0%, transparent 40%),
+                radial-gradient(circle at 80% 80%, rgba(212, 175, 55, 0.05) 0%, transparent 40%);
+        }
+
+        .gold-gradient-text {
+            background: linear-gradient(135deg, #bf953f 0%, #fcf6ba 25%, #b38728 50%, #fbf5b7 75%, #aa771c 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .gold-border-gradient {
+            border-image: linear-gradient(to bottom, #d4af37, #4a3b10, #d4af37) 1;
+        }
+
+        .btn-gold {
+            background: linear-gradient(135deg, #d4af37 0%, #edd071 50%, #aa7c11 100%);
+            color: #0a0a0a;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+        }
+
+        .btn-gold:hover {
+            background: linear-gradient(135deg, #edd071 0%, #fcf6ba 50%, #d4af37 100%);
+            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.5);
+            transform: translateY(-2px);
+        }
+
+        .gold-glow {
+            filter: drop-shadow(0px 0px 8px rgba(212, 175, 55, 0.4));
+        }
+
+        .body-zone {
+            transition: all 0.2s ease;
+            cursor: pointer;
+            fill: rgba(212, 175, 55, 0.15);
+            stroke: #d4af37;
+            stroke-width: 1.5;
+        }
+
+        .body-zone:hover {
+            fill: rgba(212, 175, 55, 0.5);
+            filter: drop-shadow(0 0 6px #d4af37);
+        }
+
+        .body-zone.active {
+            fill: rgba(212, 175, 55, 0.85);
+            stroke: #fff;
+            stroke-width: 2;
+            filter: drop-shadow(0 0 10px #d4af37);
+        }
+
+        /* Personalización de scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0a0a0a;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #2a2a2a;
+            border-radius: 4px;
+            border: 1px solid #d4af37;
+        }
+    </style>
+</head>
+<body class="min-h-screen py-8 px-4 sm:px-6 lg:px-8 flex flex-col justify-between">
+
+    <div class="max-w-7xl mx-auto w-full">
+        <!-- HEADER / BANNER -->
+        <header class="text-center mb-10 relative">
+            <div class="absolute inset-0 flex items-center justify-center opacity-10 pointer-events-none">
+                <i class="fa-solid fa-crown text-9xl text-amber-500"></i>
+            </div>
+            
+            <div class="inline-block relative">
+                <i class="fa-solid fa-crown text-3xl sm:text-4xl text-amber-400 mb-1 gold-glow"></i>
+                <h1 class="text-4xl sm:text-6xl lg:text-7xl font-black font-cinzel tracking-wider gold-gradient-text uppercase drop-shadow-md">
+                    Tattoos Baron
+                </h1>
+                <div class="h-0.5 w-full bg-gradient-to-r from-transparent via-amber-500 to-transparent my-2"></div>
+                <p class="font-marker text-xl sm:text-2xl text-amber-200/90 tracking-wide transform -rotate-1">
+                    Tu idea, nuestro arte
+                </p>
+            </div>
+        </header>
+
+        <!-- MAIN CONTENT CONTAINER -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+            
+            <!-- LEFT COLUMN: BODY SELECTION & BADGES -->
+            <div class="lg:col-span-6 space-y-8 flex flex-col items-center">
+                
+                <!-- BODY SECTOR SELECTOR -->
+                <div class="w-full bg-dark-800/80 border border-amber-500/30 rounded-2xl p-6 backdrop-blur-sm shadow-2xl">
+                    <h3 class="text-amber-400 font-cinzel text-center text-lg sm:text-xl font-bold mb-4 tracking-wide flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-child-reaching"></i> Selecciona la Zona en el Cuerpo
+                    </h3>
+                    
+                    <!-- SVG Interactive Silhouette -->
+                    <div class="grid grid-cols-2 gap-4 my-2">
+                        <!-- FRONT VIEW -->
+                        <div class="flex flex-col items-center bg-dark-900/60 p-3 rounded-xl border border-dark-600">
+                            <span class="font-cinzel text-xs font-bold text-amber-400/80 mb-2 tracking-widest">FRENTE</span>
+                            <div class="relative w-full max-w-[160px] h-[320px] flex justify-center">
+                                <svg viewBox="0 0 100 220" class="h-full w-auto">
+                                    <!-- Body Outline (Front) -->
+                                    <g opacity="0.25" fill="#333" stroke="#888" stroke-width="1">
+                                        <!-- Head -->
+                                        <circle cx="50" cy="18" r="10" />
+                                        <!-- Neck -->
+                                        <rect x="46" y="28" width="8" height="6" />
+                                        <!-- Torso -->
+                                        <path d="M 32 34 L 68 34 L 64 85 L 36 85 Z" />
+                                        <!-- Arms -->
+                                        <path d="M 32 34 L 22 40 L 18 75 L 23 75 L 29 45 L 32 45" />
+                                        <path d="M 68 34 L 78 40 L 82 75 L 77 75 L 71 45 L 68 45" />
+                                        <!-- Legs -->
+                                        <path d="M 36 85 L 48 85 L 46 150 L 48 200 L 38 200 L 38 145 L 36 85" />
+                                        <path d="M 64 85 L 52 85 L 54 150 L 52 200 L 62 200 L 62 145 L 64 85" />
+                                    </g>
+
+                                    <!-- Interactive Clickable Zones (Front) -->
+                                    <path id="zone-pecho" class="body-zone" data-name="Pecho / Torsos (Frente)" d="M 35 36 L 65 36 L 62 58 L 38 58 Z" />
+                                    <path id="zone-abdomen" class="body-zone" data-name="Abdomen (Frente)" d="M 38 59 L 62 59 L 60 82 L 40 82 Z" />
+                                    <path id="zone-brazo-izq" class="body-zone" data-name="Brazo Izquierdo" d="M 22 40 L 31 36 L 27 60 L 20 60 Z" />
+                                    <path id="zone-antebrazo-izq" class="body-zone" data-name="Antebrazo Izquierdo" d="M 20 62 L 27 62 L 23 85 L 17 85 Z" />
+                                    <path id="zone-brazo-der" class="body-zone" data-name="Brazo Derecho" d="M 69 36 L 78 40 L 80 60 L 73 60 Z" />
+                                    <path id="zone-antebrazo-der" class="body-zone" data-name="Antebrazo Derecho" d="M 73 62 L 80 62 L 83 85 L 77 85 Z" />
+                                    <path id="zone-pierna-izq" class="body-zone" data-name="Muslo / Pierna Izquierda" d="M 37 86 L 48 86 L 46 140 L 37 140 Z" />
+                                    <path id="zone-pierna-der" class="body-zone" data-name="Muslo / Pierna Derecha" d="M 52 86 L 63 86 L 63 140 L 54 140 Z" />
+                                    <path id="zone-gemelo-izq" class="body-zone" data-name="Espinilla / Pierna Izq" d="M 38 142 L 46 142 L 47 195 L 39 195 Z" />
+                                    <path id="zone-gemelo-der" class="body-zone" data-name="Espinilla / Pierna Der" d="M 54 142 L 62 142 L 61 195 L 53 195 Z" />
+                                </svg>
+                            </div>
+                        </div>
+
+                        <!-- BACK VIEW -->
+                        <div class="flex flex-col items-center bg-dark-900/60 p-3 rounded-xl border border-dark-600">
+                            <span class="font-cinzel text-xs font-bold text-amber-400/80 mb-2 tracking-widest">ESPALDA</span>
+                            <div class="relative w-full max-w-[160px] h-[320px] flex justify-center">
+                                <svg viewBox="0 0 100 220" class="h-full w-auto">
+                                    <!-- Body Outline (Back) -->
+                                    <g opacity="0.25" fill="#333" stroke="#888" stroke-width="1">
+                                        <!-- Head -->
+                                        <circle cx="50" cy="18" r="10" />
+                                        <!-- Neck -->
+                                        <rect x="46" y="28" width="8" height="6" />
+                                        <!-- Torso -->
+                                        <path d="M 32 34 L 68 34 L 64 85 L 36 85 Z" />
+                                        <!-- Arms -->
+                                        <path d="M 32 34 L 22 40 L 18 75 L 23 75 L 29 45 L 32 45" />
+                                        <path d="M 68 34 L 78 40 L 82 75 L 77 75 L 71 45 L 68 45" />
+                                        <!-- Legs -->
+                                        <path d="M 36 85 L 48 85 L 46 150 L 48 200 L 38 200 L 38 145 L 36 85" />
+                                        <path d="M 64 85 L 52 85 L 54 150 L 52 200 L 62 200 L 62 145 L 64 85" />
+                                    </g>
+
+                                    <!-- Interactive Clickable Zones (Back) -->
+                                    <path id="zone-espalda-alta" class="body-zone" data-name="Espalda Alta / Hombros" d="M 35 36 L 65 36 L 63 60 L 37 60 Z" />
+                                    <path id="zone-espalda-baja" class="body-zone" data-name="Espalda Baja / Lumbar" d="M 37 61 L 63 61 L 60 82 L 40 82 Z" />
+                                    <path id="zone-gluteos" class="body-zone" data-name="Glúteos / Cadera Posterior" d="M 36 83 L 64 83 L 62 100 L 38 100 Z" />
+                                    <path id="zone-pantorrilla-izq" class="body-zone" data-name="Pantorrilla Izquierda" d="M 38 142 L 46 142 L 47 195 L 39 195 Z" />
+                                    <path id="zone-pantorrilla-der" class="body-zone" data-name="Pantorrilla Derecha" d="M 54 142 L 62 142 L 61 195 L 53 195 Z" />
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <p class="text-xs text-center text-gray-400 italic mt-2">
+                        * Haz clic en una zona del cuerpo para seleccionarla automáticamente en el formulario.
+                    </p>
+                </div>
+
+                <!-- BADGES GRID -->
+                <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 w-full">
+                    <div class="bg-dark-800/60 border border-amber-500/20 rounded-xl p-3 text-center flex flex-col items-center hover:border-amber-500/50 transition-all">
+                        <div class="w-12 h-12 rounded-full bg-amber-500/10 border border-amber-500/40 flex items-center justify-center mb-2 text-amber-400">
+                            <i class="fa-solid fa-shield-halved text-xl"></i>
+                        </div>
+                        <span class="text-xs font-bold uppercase tracking-wider text-gray-200">TATUAJES PERSONALIZADOS</span>
+                    </div>
+
+                    <div class="bg-dark-800/60 border border-amber-500/20 rounded-xl p-3 text-center flex flex-col items-center hover:border-amber-500/50 transition-all">
+                        <div class="w-12 h-12 rounded-full bg-amber-500/10 border border-amber-500/40 flex items-center justify-center mb-2 text-amber-400">
+                            <i class="fa-solid fa-star text-xl"></i>
+                        </div>
+                        <span class="text-xs font-bold uppercase tracking-wider text-gray-200">DISEÑOS ÚNICOS</span>
+                    </div>
+
+                    <div class="bg-dark-800/60 border border-amber-500/20 rounded-xl p-3 text-center flex flex-col items-center hover:border-amber-500/50 transition-all">
+                        <div class="w-12 h-12 rounded-full bg-amber-500/10 border border-amber-500/40 flex items-center justify-center mb-2 text-amber-400">
+                            <i class="fa-solid fa-gem text-xl"></i>
+                        </div>
+                        <span class="text-xs font-bold uppercase tracking-wider text-gray-200">ALTA HIGIENE</span>
+                    </div>
+
+                    <div class="bg-dark-800/60 border border-amber-500/20 rounded-xl p-3 text-center flex flex-col items-center hover:border-amber-500/50 transition-all">
+                        <div class="w-12 h-12 rounded-full bg-amber-500/10 border border-amber-500/40 flex items-center justify-center mb-2 text-amber-400">
+                            <i class="fa-solid fa-syringe text-xl"></i>
+                        </div>
+                        <span class="text-xs font-bold uppercase tracking-wider text-gray-200">EXPERIENCIA Y PROFESIONALISMO</span>
+                    </div>
+                </div>
+
+                <!-- SLOGAN -->
+                <div class="text-center py-4">
+                    <h2 class="font-marker text-3xl sm:text-4xl text-amber-300 transform -rotate-2 tracking-wide gold-glow">
+                        TU HISTORIA EN LA PIEL
+                    </h2>
+                </div>
+            </div>
+
+            <!-- RIGHT COLUMN: FORM CARD -->
+            <div class="lg:col-span-6 w-full">
+                <div class="bg-dark-800/90 border-2 border-amber-500/40 rounded-2xl p-6 sm:p-8 shadow-2xl relative overflow-hidden backdrop-blur-md">
+                    <!-- Glow effect top right -->
+                    <div class="absolute -top-24 -right-24 w-48 h-48 bg-amber-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+                    <div class="text-center mb-6">
+                        <h2 class="text-2xl sm:text-3xl font-bold font-cinzel text-amber-400 tracking-wider">
+                            SOLICITA TU TATUAJE
+                        </h2>
+                        <p class="text-xs sm:text-sm text-gray-300 mt-1">
+                            Completa el formulario y te contactaremos por WhatsApp para darte toda la información.
+                        </p>
+                    </div>
+
+                    <form id="tattooForm" class="space-y-4">
+                        
+                        <!-- NOMBRE COMPLETO -->
+                        <div>
+                            <label class="block text-xs font-semibold text-gray-300 mb-1" for="nombre">
+                                <i class="fa-regular fa-user text-amber-400 mr-2"></i>Nombre completo *
+                            </label>
+                            <input type="text" id="nombre" required placeholder="Tu nombre" 
+                                class="w-full bg-dark-900/80 border border-dark-600 focus:border-amber-500 focus:ring-1 focus:ring-amber-500 rounded-lg px-4 py-2.5 text-sm text-gray-100 placeholder-gray-500 outline-none transition-all">
+                        </div>
+
+                        <!-- WHATSAPP -->
+                        <div>
+                            <label class="block text-xs font-semibold text-gray-300 mb-1" for="whatsapp">
+                                <i class="fa-brands fa-whatsapp text-amber-400 mr-2"></i>Número de WhatsApp *
+                            </label>
+                            <input type="tel" id="whatsapp" required placeholder="Ej. 33 19 05 36 34" 
+                                class="w-full bg-dark-900/80 border border-dark-600 focus:border-amber-500 focus:ring-1 focus:ring-amber-500 rounded-lg px-4 py-2.5 text-sm text-gray-100 placeholder-gray-500 outline-none transition-all">
+                        </div>
+
+                        <!-- ZONA DEL CUERPO -->
+                        <div>
+                            <label class="block text-xs font-semibold text-gray-300 mb-1" for="zona">
+                                <i class="fa-solid fa-shirt text-amber-400 mr-2"></i>Zona del cuerpo donde lo quieres *
+                            </label>
+                            <select id="zona" required 
+                                class="w-full bg-dark-900/80 border border-dark-600 focus:border-amber-500 focus:ring-1 focus:ring-amber-500 rounded-lg px-4 py-2.5 text-sm text-gray-100 outline-none transition-all">
+                                <option value="" disabled selected>Selecciona una opción</option>
+                                <option value="Brazo / Antebrazo">Brazo / Antebrazo</option>
+                                <option value="Pecho / Torso">Pecho / Torso</option>
+                                <option value="Espalda Alta / Baja">Espalda Alta / Baja</option>
+                                <option value="Abdomen / Costillas">Abdomen / Costillas</option>
+                                <option value="Pierna / Pantorrilla">Pierna / Pantorrilla</option>
+                                <option value="Mano / Muñeca">Mano / Muñeca</option>
+                                <option value="Cuello / Nuca">Cuello / Nuca</option>
+                                <option value="Pie / Tobillo">Pie / Tobillo</option>
+                                <option value="Otra zona">Otra zona</option>
+                            </select>
+                        </div>
+
+                        <!-- TAMAÑO APROXIMADO -->
+                        <div>
+                            <label class="block text-xs font-semibold text-gray-300 mb-1" for="tamano">
+                                <i class="fa-solid fa-ruler-combined text-amber-400 mr-2"></i>Tamaño aproximado *
+                            </label>
+                            <select id="tamano" required 
+                                class="w-full bg-dark-900/80 border border-dark-600 focus:border-amber-500 focus:ring-1 focus:ring-amber-500 rounded-lg px-4 py-2.5 text-sm text-gray-100 outline-none transition-all">
+                                <option value="" disabled selected>Selecciona una opción</option>
+                                <option value="Pequeño (1 - 5 cm)">Pequeño (1 - 5 cm)</option>
+                                <option value="Mediano (6 - 12 cm)">Mediano (6 - 12 cm)</option>
+                                <option value="Grande (13 - 25 cm)">Grande (13 - 25 cm)</option>
+                                <option value="Pieza completa / Manga (25+ cm)">Pieza completa / Manga (25+ cm)</option>
+                            </s
